@@ -23,13 +23,13 @@ describe('Sprint:', () => {
         sut = aSprint();
     });
 
-    it('Should be correctly instantiated.', () => {
+    it('Should be correctly instantiated', () => {
         // Assert
         expect(sut.id).toBe(1);
         expect(sut.stories).toHaveLength(0);
     });
 
-    it('Should be added a story.', () => {
+    it('Should be added a story', () => {
         // Arrange
         const story = new Story('Setup env', 'Set up development environment.');
         // Act
@@ -38,7 +38,7 @@ describe('Sprint:', () => {
         expect(sut.stories).toHaveLength(1);
     });
 
-    it('should report an assignment summary grouped by person and sorted with points by descending order.', () => {
+    it('should report an assignment summary grouped by person and sorted with points by descending order', () => {
         // Arrange
         const [pt1, pt2, pt3, pt4] = [3, 2, 1, 2];
         const story1 = aStory({point: pt1, asignee: 'Robert'});
@@ -50,7 +50,7 @@ describe('Sprint:', () => {
         const assignment = sut.assignment;
         // Assert
         expect(assignment).toEqual([
-            ['Alice', (pt2 + pt4)], //4 points
+            ['Alice', (pt2 + pt4)], // (2 + 2) = 4 points
             ['Robert', pt1], // 3 points
             ['Eric', pt3], // 1 points
         ]);

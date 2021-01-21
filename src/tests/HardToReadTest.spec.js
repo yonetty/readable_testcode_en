@@ -1,7 +1,7 @@
 const {Sprint, Story} = require('../entities');
 
 describe('Sprint:', () => {
-    it('should be correctly instantiated.', () => {
+    it('should be correctly instantiated', () => {
         const sprint = new Sprint(1);
         expect(sprint.id).toBe(1);
         expect(sprint.stories).toHaveLength(0);
@@ -11,7 +11,7 @@ describe('Sprint:', () => {
         expect(sprint.stories).toHaveLength(1);
     });
 
-    it('should report an assingment summary.', () => {
+    it('should report an assignment summary', () => {
         const sprint = new Sprint(1);
 
         const story1 = new Story('Setup env', 'Set up development environment.', 3, 'Robert');
@@ -32,11 +32,11 @@ describe('Sprint:', () => {
 });
 
 describe('Story:', () => {
-    it('cannot be started when assignee is not set.', () => {
+    it('cannot be started when assignee is not set', () => {
         const story = new Story('Setup env', 'Set up development environment', 3, null);
         expect(story.canBeStarted).toBe(false);
     });
-    it('cannot be started when point is not set.', () => {
+    it('cannot be started when point is not set', () => {
         const story = new Story('Setup env', 'Set up development environment', 0, 'Alice');
         expect(story.canBeStarted).toBe(false);
     });
@@ -44,7 +44,7 @@ describe('Story:', () => {
         const story = new Story('Setup env', 'Set up development environment', 0, null);
         expect(story.canBeStarted).toBe(false);
     });
-    it('can be started when both assignee and point are set.', () => {
+    it('can be started when both assignee and point are set', () => {
         const story = new Story('Setup env', 'Set up development environment', 3, 'Alice');
         expect(story.canBeStarted).toBe(true);
     });
